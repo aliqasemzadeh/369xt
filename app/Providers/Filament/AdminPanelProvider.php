@@ -53,6 +53,14 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])->plugin(
+                \TomatoPHP\FilamentEcommerce\FilamentEcommercePlugin::make()
+                    ->useCoupon()
+                    ->useGiftCard()
+                    ->useReferralCode()
+                    ->allowOrderExport()
+                    ->allowOrderImport()
+                    ->useWidgets()
+            );
     }
 }
